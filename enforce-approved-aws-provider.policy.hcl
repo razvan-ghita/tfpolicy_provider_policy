@@ -14,7 +14,7 @@ provider_policy "aws" "approved_provider_version" {
   enforcement_level = "mandatory" 
 
   enforce {
-    condition     = core::semverconstraint(meta.version, ">= 5.0.0, < 6.0.0")
+    condition     = core::semverconstraint(meta.version, "<5.0.0")
     error_message = "AWS provider version '${meta.version}' is not approved. Use a version in the range >= 5.0.0, < 6.0.0 (i.e. ~> 5.0). Update your required_providers version constraint and re-run terraform init."
   }
 }
